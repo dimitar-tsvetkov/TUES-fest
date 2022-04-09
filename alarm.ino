@@ -27,7 +27,7 @@ boolean passChanged = false;
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
 char keypressed;
-//define the cymbols on the buttons of the keypads
+
 char keyMap[ROWS][COLS] = {
   {'1', '2', '3', 'A'},
   {'4', '5', '6', 'B'},
@@ -58,7 +58,7 @@ void loop() {
     lcd.setCursor(0, 1);
     lcd.print("activated in");
 
-    int countdown = 5; // 9 seconds count down before activating the alarm
+    int countdown = 5; 
     while (countdown != 0) {
       lcd.setCursor(13, 1);
       lcd.print(countdown);
@@ -85,7 +85,7 @@ void loop() {
         activated_counter = 0;
       }
     }
-    tone(buzzer, 1000); // Send 1KHz sound signal
+    tone(buzzer, 1000); 
     lcd.clear();
     enterPassword();
     activated_counter = 0;
@@ -102,7 +102,7 @@ void loop() {
       screenOffMsg = 1;
     }
     keypressed = myKeypad.getKey();
-    if (keypressed == 'A') {      //If A is pressed, activate the alarm
+    if (keypressed == 'A') {      
       tone(buzzer, 1000, 200);
       activateAlarm = true;
       ServoMotor.write(100);
